@@ -20,7 +20,7 @@ export class CreateUserUseCase {
 
     await this.usersRepository.save(user);
 
-    this.mailProvider.sendMail({
+    await this.mailProvider.sendMail({
       to: { email: data.email, name: data.name },
       from: { email: 'equipe@joao.com', name: 'Equipe do app' },
       subject: 'Bem-vindo a plataforma!',
