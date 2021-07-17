@@ -9,7 +9,7 @@ export class CreateUserUseCase {
     private mailProvider: IMailProvider,
   ) {}
 
-  async execute(data: CreateUserRequestDTO) {
+  async execute(data: CreateUserRequestDTO): Promise<void> {
     const usersAlreadyExist = await this.usersRepository.findByEmail(
       data.email,
     );
